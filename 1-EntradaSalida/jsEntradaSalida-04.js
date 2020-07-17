@@ -4,6 +4,12 @@ y lo muestro por 'ID' al presionar el botón 'mostrar'
 */
 function mostrar()
 {
-	alert("ok");
+	var vNombre;
+
+	vNombre = prompt("Ingrese Nombre");
+
+	//asignacion
+	 document.getElementById("txtIdNombre").value = vNombre;
+	 //contrario al ejercicio 3
 }
 
