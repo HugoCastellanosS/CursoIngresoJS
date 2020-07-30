@@ -8,7 +8,88 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-function CalcularPrecio () 
-{
- 	
+function CalcularPrecio() {
+    let vcantLamp;
+    let vPrecioLamp = 35;
+    let vDto;
+    let vMarca;
+    let vPrecioparcial;
+    let vPreciofinal;
+    let vIIBB;
+
+    //A
+    vcantLamp = parseFloat(document.getElementById("txtIdCantidad").value);
+    vMarca = document.getElementById("Marca").value;
+    vPreciofinal = parseFloat(vPreciofinal);
+
+    if (vcantLamp >= 6) {
+        vDto = 0.50;
+        vPrecioparcial = vPrecioLamp * vcantLamp;
+        vPreciofinal = vPrecioparcial - (vPrecioparcial * vDto);
+
+        document.getElementById("txtIdprecioDescuento").value = vPreciofinal;
+    }
+
+    //B
+
+
+    if (vcantLamp == 5 && vMarca == "ArgentinaLuz") {
+        vDto = 0.40;
+        vPrecioparcial = vPrecioLamp * vcantLamp;
+        vPreciofinal = vPrecioparcial - (vPrecioparcial * vDto);
+        document.getElementById("txtIdprecioDescuento").value = vPreciofinal
+    }
+
+    else if (vcantLamp == 5 && vMarca != "ArgentinaLuz") {
+        vDto = 0.30
+        vPrecioparcial = vPrecioLamp * vcantLamp;
+        vPreciofinal = vPrecioparcial - (vPrecioparcial * vDto);
+        document.getElementById("txtIdprecioDescuento").value = vPreciofinal
+    }
+
+    //C
+
+    if (vcantLamp == 4 && vMarca == "ArgentinaLuz" || vMarca == "FelipeLamparas") {
+        vDto = 0.25;
+        vPrecioparcial = vPrecioLamp * vcantLamp;
+        vPreciofinal = vPrecioparcial - (vPrecioparcial * vDto);
+        document.getElementById("txtIdprecioDescuento").value = vPreciofinal
+    }
+    else if (vcantLamp == 4 && !(vMarca == "ArgentinaLuz" || vMarca == "FelipeLamparas")) {
+        vDto = 0.20;
+        vPrecioparcial = vPrecioLamp * vcantLamp;
+        vPreciofinal = vPrecioparcial - (vPrecioparcial * vDto);
+        document.getElementById("txtIdprecioDescuento").value = vPreciofinal
+    }
+
+    //D
+
+    if (vcantLamp == 3 && vMarca == "ArgentinaLuz") {
+        vDto = 0.15;
+        vPrecioparcial = vPrecioLamp * vcantLamp;
+        vPreciofinal = vPrecioparcial - (vPrecioparcial * vDto);
+        document.getElementById("txtIdprecioDescuento").value = vPreciofinal
+    }
+    else if (vcantLamp == 3 && vMarca == "FelipeLamparas") {
+        vDto = 0.10;
+        vPrecioparcial = vPrecioLamp * vcantLamp;
+        vPreciofinal = vPrecioparcial - (vPrecioparcial * vDto);
+        document.getElementById("txtIdprecioDescuento").value = vPreciofinal
+    }
+    else if (vcantLamp == 3 && !(vMarca == "ArgentinaLuz" || vMarca == "FelipeLamparas")) {
+        vDto = 0.5;
+        vPrecioparcial = vPrecioLamp * vcantLamp;
+        vPreciofinal = vPrecioparcial - (vPrecioparcial * vDto);
+        document.getElementById("txtIdprecioDescuento").value = vPreciofinal
+    }
+
+    //E
+
+    if (vPreciofinal > 120) {
+        vIIBB = 10 * vPreciofinal / 100;
+
+        alert("IIBB Usted pagó " + vIIBB);
+    }
+
+
 }
